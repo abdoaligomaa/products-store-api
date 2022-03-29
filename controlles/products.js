@@ -1,7 +1,12 @@
-const router=require('express').Router()
 
-router.route('/').get((req,res)=>{
-    res.send('welcome in my api')
-})
 
-module.exports=router
+const getAllProducts=(req,res)=>{
+    res.json({products:'products'})
+}
+const getAllProductsStatic=(req,res)=>{
+    res.json({products:'static products'})
+}
+module.exports={
+    getAllProducts,
+    getAllProductsStatic
+}
