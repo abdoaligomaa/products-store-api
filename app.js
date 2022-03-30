@@ -1,4 +1,7 @@
-const mongoose=require('./modules/product')
+require('dotenv').config()
+
+
+const conectDB=require('./db/connect')
 const {notFound,handlingError}=require('./middlewars/error')
 const productRouter=require('./routes/products')
 
@@ -19,4 +22,13 @@ app.get('/',(req,res)=>{
 })
 
 const port=process.env.PORT||4000
-app.listen(port,()=>console.log(`server is listen in post ${port}...`))
+
+const start=async()=>{
+    try{
+        await conectDB(process.env.MONGO_URL)
+        app.listen(port,()=>console.log(`server is listen in post ${port}...`))
+    }catch(error){
+        console.log(error)
+    }
+}
+start()
