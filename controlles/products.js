@@ -40,7 +40,7 @@ const getAllProducts=async(req,res)=>{
     res.json({ ProductsNumber:products.length,products})
 }
 const getAllProductsStatic=(req,res)=>{
-    res.json({products:'static products'})
+    res.json('this is the test project')
 }
 module.exports={
     getAllProducts,
